@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @owner.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @owner.lastname %>
+</p>
+
+<p>
+  <strong>Phnumber:</strong>
+  <%= @owner.phnumber %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @owner.address %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @owner.postcode %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @owner.state %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Species</th>
+      <th>Breed</th>
+      <th>Dob</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @owner.animals.each do |animal| %>
+      <tr>
+        <td><%= animal.firstname %></td>
+        <td><%= animal.lastname %></td>
+        <td><%= animal.species %></td>
+        <td><%= animal.breed %></td>
+        <td><%= animal.dob %></td>
+        <td><%= link_to 'Show', animal %></td>
+        <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
+        <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Animal', new_animal_path %> | 
+
+
+<%= link_to 'Edit', edit_owner_path(@owner) %> |
+<%= link_to 'Back', owners_path %>
